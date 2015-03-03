@@ -17,11 +17,22 @@
 
 		// here is where you declare your vars, like:
 		// var one = 1;
-
+	var row = 1;
+		var max_rows = 50;
+        var output = '';
+		var y = 100;
 	 /**
 	 * Setup - this is where you get things ready before running the loop
 	 */
 		function setup() {
+		createCanvas(720, 400);  // Size must be the first statement
+		stroke(255);     // Set line drawing color to white
+		frameRate(30);
+
+			// Set colors
+		  fill(204, 101, 192, 127);
+		  stroke(127, 63, 120);
+
 			// this tells p5 that we are not using the
 			// `<canvas>` element (more on that later)
 			noCanvas();
@@ -30,7 +41,19 @@
 		/**
 		 * Here's the draw loop! This is where all the fun stuff happens.
 		 */
-		function draw() {
+		function draw() {if (row < max_rows)
+
+		{	if (row == 1) {
+				output = "hey" ;
+		} else if(row == 2) {
+			output = "hey friend";
+		} else if(row == 3) {
+			output = "k bye";
+		}
+
+    createElement('p',output);
+	    row = row + 1;
+    }
 			// this will continue to loop
 		}
 
