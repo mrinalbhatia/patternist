@@ -16,46 +16,62 @@
 		// (notice the different style of comments)
 
 		// here is where you declare your vars, like:
-		// var one = 1;
-	var row = 1;
-		var max_rows = 50;
-        var output = '';
-		var y = 100;
+		// var one;
+
+		var row = 1;
+		var max_rows = 30;
+    var output = '';
+		var even = true;
+		var elementTag = "h1"
+    var position = ' ';
 	 /**
 	 * Setup - this is where you get things ready before running the loop
 	 */
-		function setup() {
-		createCanvas(720, 400);  // Size must be the first statement
-		stroke(255);     // Set line drawing color to white
-		frameRate(30);
 
-			// Set colors
-		  fill(204, 101, 192, 127);
-		  stroke(127, 63, 120);
+	function setup () {
+
 
 			// this tells p5 that we are not using the
 			// `<canvas>` element (more on that later)
 			noCanvas();
-		}
+	}
 
 		/**
 		 * Here's the draw loop! This is where all the fun stuff happens.
 		 */
-		function draw() {if (row < max_rows)
+		function draw() {
 
-		{	if (row == 1) {
-				output = "hey" ;
+
+		if (row < max_rows){
+
+	  even = !even;
+
+	   	if (row == 1) {
+			output = "&#9733;&#9733;&#9733;&#9733;&#9733;&#9733";
 		} else if(row == 2) {
-			output = "hey friend";
-		} else if(row == 3) {
-			output = "k bye";
-		}
+			output = "&#9734;&#9734;&#9734;&#9734;&#9734;&#9734";
+		} else if (row == 3) {
+			output = "&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;"
+		} else if(row == 4) {
+			output = "&#9734;&#9734;&#9734;&#9734;&#9734;&#9734";
+		} else if(row == 5) {
+			output = "&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;"
+		} else if(even) {
+	  	output = "&#9734;&#9734;&#9734;&#9734;&#9734;&#9734";
+	  } else if (!even){
+	    output = "&#9733;&#9733;&#9733;&#9733;&#9733;&#9733"
+	  }
 
-    createElement('p',output);
+    var element = createElement(elementTag,output);
 	    row = row + 1;
+			element.addClass(position);
+			position = "";
     }
+	}
+
 			// this will continue to loop
-		}
+
+
 
 		// now leaving the land of javascript...
 		</script>
@@ -63,18 +79,31 @@
 
 		<style>
 			body {
+
+			text-align: center;
 				padding: 0;
 				margin: 0;
+
+				/*
+				  this allows the characters to break at the end of the window,
+				  instead of wrapping accross the page
+				*/
+				word-wrap: break-word;
+				/* notice custom styles here */
+				font-size: 300%;
+				letter-spacing: 0px;
+				color: #CC99CC;
+				background: #000033;
 				font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-				font-size: 200%;
 			}
+
 		</style>
 
 	</head>
 
 	<!-- a body for the meat/data/content -->
 	<body>
-
+		<marquee><h1> &#9733;&#10089; Starry Night &#10088;&#9734; </h1></marquee>
 	</body>
 
 </html>
